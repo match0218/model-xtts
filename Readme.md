@@ -1,12 +1,5 @@
-# 1. Load Docker Image
-`docker load -i ollama-tinyllama.tar`
-# 2. run docker Image
-`docker run --gpus all -it --entrypoint /bin/bash -v </path/to/.ollama>:/home ollama/ollama`
-in docker console
-`ollama serve`
+# 1. load docker image
+`docker load -i xtts-streaming-local.tar`
 
-# 3. connect docker container
-`docker exec -it <container_id> /bin/bash` (get container id using `docker ps`)
-in doker console
-`cp /home/.ollama /root/.ollama -r`
-`ollama run tinyllama`
+# 2. run docker image
+`docker run --gpus=all -e COQUI_TOS_AGREED=1 --rm -p 8000:80 ghcr.io/coqui-ai/xtts-streaming-local:latest`
